@@ -1,0 +1,16 @@
+specialite_libelle,categorie_libelle
+Boucher,Alimentation
+Boulanger,Alimentation
+Chocolatier,Alimentation
+Traiteur,Alimentation
+Chauffagiste,Bâtiment
+Electricien,Bâtiment
+Menuisier,Bâtiment
+Plombier,Bâtiment
+Bijoutier,Fabrication
+Couturier,Fabrication
+Ferronier,Fabrication
+Coiffeur,Services
+Fleuriste,Services
+Toiletteur,Services
+Webdesign,Services
