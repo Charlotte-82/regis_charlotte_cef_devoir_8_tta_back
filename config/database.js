@@ -21,7 +21,6 @@ const sequelize = new Sequelize(
         rejectUnauthorized: false,
       },
     },
-    family: 4,
   }
 );
 
