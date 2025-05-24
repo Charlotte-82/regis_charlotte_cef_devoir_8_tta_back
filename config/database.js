@@ -15,6 +15,12 @@ const sequelize = new Sequelize(
     dialect: "mysql",
     port: parseInt(process.env.DB_PORT, 10) || 3306,
     logging: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
   }
 );
 
