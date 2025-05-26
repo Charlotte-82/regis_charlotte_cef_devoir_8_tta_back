@@ -9,26 +9,19 @@ const specialiteRoutes = require("../routes/specialiteRoutes");
 const categorieRoutes = require("../routes/categorieRoutes");
 const contactRoutes = require("../routes/contactRoutes");
 
-const allowedOrigins = process.env.FRONTEND_URL
-  ? process.env.FRONTEND_URL.split(",")
-  : ["http://localhost:3000"];
-
-console.log("Configuring CORS for origins:", allowedOrigins);
+const allowedOrigins = ["http://localhost:3000", /\.vercel\.app$/];
 
 app.use(
   cors({
     origin: function (origin, callback) {
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
+      if (allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {
         return callback(null, true);
-      } else {
-        console.warn("CORS denied for origin:", origin);
-        return callback(new Error("Not allowed by CORS"), false);
       }
+      console.warn("CORS refusé pour :", origin);
+      return callback(new Error("Not allowed by CORS"), false);
     },
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
-    optionsSuccessStatus: 204,
   })
 );
 
