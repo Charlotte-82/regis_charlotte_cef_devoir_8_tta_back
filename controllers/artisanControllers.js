@@ -42,7 +42,7 @@ exports.getTopArtisans = async (req, res) => {
     console.log("Essai pour obtenir le top des artisans...");
     const topArtisans = await artisanService.fetchTopArtisans();
     console.log("Résultat reçu dans le contrôleur :", topArtisans);
-    res.json({ topArtisans });
+    res.json(topArtisans);
   } catch (error) {
     console.error("Erreur dans getTopArtisans :", error);
     res.status(500).json({ error: "Erreur serveur" });
