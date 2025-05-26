@@ -84,3 +84,18 @@ app.get("/", (req, res) => {
   console.log("GET / received");
   res.status(200).send("Backend is running!");
 });
+
+const PORT = process.env.PORT || 3001; // Ton port Railway
+sequelize
+  .sync()
+  .then(() => {
+    // Synchro DB (attention à force: true si présent!)
+    console.log("Database synced");
+    app.listen(PORT, () => {
+      console.log(`Backend server listening on port ${PORT}`);
+      console.log("FRONTEND_URL for CORS:", process.env.FRONTEND_URL); // VÉRIFIE LA VARIABLE D'ENV ICI
+    });
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+  });
