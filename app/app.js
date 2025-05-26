@@ -12,11 +12,10 @@ const contactRoutes = require("../routes/contactRoutes");
 const allowedOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(",")
   : ["http://localhost:3000"];
-console.log("Configuring CORS for origins:", allowedOrigins); // VÉRIFIE LES ORIGINS CORS ICI !
+console.log("Configuring CORS for origins:", allowedOrigins);
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps or curl requests)
       if (!origin) return callback(null, true);
       if (allowedOrigins.indexOf(origin) === -1) {
         const msg =
@@ -85,15 +84,14 @@ app.get("/", (req, res) => {
   res.status(200).send("Backend is running!");
 });
 
-const PORT = process.env.PORT || 3001; // Ton port Railway
+const PORT = process.env.MYSQLPORT || 3001;
 sequelize
   .sync()
   .then(() => {
-    // Synchro DB (attention à force: true si présent!)
     console.log("Database synced");
     app.listen(PORT, () => {
       console.log(`Backend server listening on port ${PORT}`);
-      console.log("FRONTEND_URL for CORS:", process.env.FRONTEND_URL); // VÉRIFIE LA VARIABLE D'ENV ICI
+      console.log("FRONTEND_URL for CORS:", process.env.FRONTEND_URL);
     });
   })
   .catch((err) => {
