@@ -3,8 +3,8 @@ const router = express.Router();
 console.log("Attempting to load artisanController from artisanRoutes.js...");
 
 const artisanControllers = require("../controllers/artisanControllers");
-console.log("artisanController loaded:", typeof artisanController);
-console.log("getTopArtisans type:", typeof artisanController.getTopArtisans);
+console.log("artisanController loaded:", typeof artisanControllers);
+console.log("getTopArtisans type:", typeof artisanControllers.getTopArtisans);
 
 router.get("/top", artisanControllers.getTopArtisans);
 router.get("/filtres", artisanControllers.getArtisansFiltres);
