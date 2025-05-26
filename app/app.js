@@ -79,3 +79,8 @@ app.use("/api/contact", contactRoutes);
     console.error("Erreur de démarrage serveur :", error);
   }
 })();
+
+app.get("/", (req, res) => {
+  console.log("GET / received");
+  res.status(200).send("Backend is running!");
+});
