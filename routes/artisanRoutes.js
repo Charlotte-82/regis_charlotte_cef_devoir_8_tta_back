@@ -7,6 +7,7 @@ console.log("artisanController loaded:", typeof artisanControllers);
 console.log("getTopArtisans type:", typeof artisanControllers.getTopArtisans);
 
 router.get("/top", artisanControllers.getTopArtisans);
+
 router.get("/filtres", artisanControllers.getArtisansFiltres);
 router.get("/", artisanControllers.getArtisans);
 router.get("/:id", artisanControllers.getArtisanById);
