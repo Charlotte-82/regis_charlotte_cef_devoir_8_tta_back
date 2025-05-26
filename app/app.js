@@ -138,7 +138,21 @@ app.use(
 );
 
 app.use(express.json()); // Middleware pour parser le JSON
-
+app.get("/api/artisans/top", (req, res) => {
+  console.log(
+    "APP.JS: Requête /api/artisans/top interceptée DIRECTEMENT dans app.js !"
+  );
+  // Envoie une réponse bidon pour tester
+  res.header(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate"
+  );
+  res.header("Pragma", "no-cache");
+  res.header("Expires", "0");
+  res
+    .status(200)
+    .json({ message: "Requête interceptée par app.js !", test: true });
+});
 // --- 2. Définition des Routes API ---
 app.use("/api/artisans", artisanRoutes);
 app.use("/api/villes", villeRoutes);
