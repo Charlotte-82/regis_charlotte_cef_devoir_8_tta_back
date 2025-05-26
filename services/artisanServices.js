@@ -54,7 +54,7 @@ exports.fetchTopArtisans = async () => {
     FROM artisan a
     JOIN specialite s ON a.Id_specialite = s.Id_specialite
     JOIN ville v ON a.Id_ville = v.Id_ville
-    WHERE a.artisan_top = true
+    // WHERE a.artisan_top = true
     ORDER BY a.artisan_note DESC
     LIMIT 3
   `;
