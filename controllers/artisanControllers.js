@@ -1,4 +1,7 @@
+console.log("Attempting to load artisanService...");
 const artisanService = require("../services/artisanServices");
+console.log("artisanService loaded:", typeof artisanService);
+console.log("fetchTopArtisans type:", typeof artisanService.fetchTopArtisans);
 
 exports.getArtisans = async (req, res) => {
   try {
