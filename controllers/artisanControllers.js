@@ -36,6 +36,7 @@ exports.getArtisanById = async (req, res) => {
 
 exports.getTopArtisans = async (req, res) => {
   try {
+    console.log("Essai pour obtenir le top des artisans...");
     const topArtisans = await artisanService.fetchTopArtisans();
     console.log("Résultat reçu dans le contrôleur :", topArtisans);
     res.json({ data: topArtisans });
